@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chúc Mừng Năm Mới - Mã Đáo Thành Công." />
+    <title>Chúc Mừng Năm Mới - Mã Đáo Thành Công 🐴🌸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Full viewport layout, no scroll */
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: "Noto Serif Display", "Georgia", serif;
+        background: #fce4ec;
+        color: #5a1a00;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ===== FLOATING PETALS ===== */
+      .petals-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .petal {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: radial-gradient(circle, #ff9ecf 30%, #ff6fa8 100%);
+        border-radius: 50% 0 50% 0;
+        opacity: 0.45;
+        animation: petalFall linear infinite;
+      }
+
+      @keyframes petalFall {
+        0% {
+          transform: translateY(-120px) rotate(0deg) translateX(0);
+          opacity: 0;
+        }
+        5% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translateY(110vh) rotate(720deg) translateX(100px);
+          opacity: 0;
+        }
+      }
+
+      /* ===== HEADER (compact) ===== */
+      header {
+        flex-shrink: 0;
+        padding: 14px 20px 10px;
+        text-align: center;
+        z-index: 2;
+      }
+
+      .header-title {
+        font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+        font-weight: 800;
+        line-height: 1.3;
+        letter-spacing: 1px;
+        background: linear-gradient(
+          90deg,
+          #ff0000,
+          #ff6600,
+          #ffcc00,
+          #33cc33,
+          #0099ff,
+          #6633cc,
+          #ff0099,
+          #ff0000
+        );
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rainbowShift 6s linear infinite;
+        filter: drop-shadow(0 0 6px rgba(255, 100, 100, 0.15));
+      }
+
+      @keyframes rainbowShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 300% 50%;
+        }
+      }
+
+      .header-divider {
+        width: 60px;
+        height: 2px;
+        margin: 8px auto 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #d4443b,
+          #ffd700,
+          #d4443b,
+          transparent
+        );
+        border-radius: 2px;
+      }
+
+      /* ===== MAIN (fills remaining space) ===== */
+      main {
+        flex: 1;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+
+      /* Scene fills as much as possible, tree anchored to bottom */
+      .scene-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 900px;
+      }
+
+      /* ===== TREE — full height, bottom: 0 ===== */
+      .tree {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 95%;
+        width: auto;
+        max-width: 90%;
+        z-index: 2;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 25px rgba(100, 40, 20, 0.18));
+        animation: treeFloat 6s ease-in-out infinite;
+      }
+
+      @keyframes treeFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      /* ===== ENVELOPES ===== */
+      .envelope {
+        position: absolute;
+        z-index: 3;
+        cursor: pointer;
+        transition:
+          transform 0.3s ease,
+          filter 0.3s ease;
+        filter: drop-shadow(0 3px 6px rgba(180, 50, 50, 0.3));
+      }
+
+      .envelope img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .envelope:hover {
+        transform: scale(1.2) translateY(-3px);
+        filter: drop-shadow(0 5px 16px rgba(255, 80, 80, 0.6))
+          drop-shadow(0 0 12px rgba(255, 200, 50, 0.5));
+      }
+
+      .envelope::before {
+        content: "";
+        position: absolute;
+        top: -24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1.5px;
+        height: 24px;
+        background: linear-gradient(
+          to bottom,
+          rgba(139, 90, 43, 0.5),
+          rgba(139, 90, 43, 0.1)
+        );
+      }
+
+      /* Envelopes positioned relative to tree canopy area */
+      .envelope-1 {
+        width: 44px;
+        top: 38%;
+        left: 70%;
+        animation: envFloat 4.5s ease-in-out infinite;
+      }
+      .envelope-2 {
+        width: 40px;
+        top: 16%;
+        left: 56%;
+        animation: envFloat 5.2s ease-in-out 0.5s infinite;
+      }
+      .envelope-3 {
+        width: 42px;
+        top: 24%;
+        left: 78%;
+        animation: envFloat 4.8s ease-in-out 1s infinite;
+      }
+      .envelope-4 {
+        width: 46px;
+        top: 24%;
+        left: 44%;
+        animation: envFloat 5.5s ease-in-out 0.3s infinite;
+      }
+      .envelope-5 {
+        width: 38px;
+        top: 20%;
+        left: 70%;
+        animation: envFloat 4.3s ease-in-out 0.8s infinite;
+      }
+      .envelope-6 {
+        width: 42px;
+        top: 44%;
+        left: 44%;
+        animation: envFloat 5s ease-in-out 1.2s infinite;
+      }
+      .envelope-7 {
+        width: 40px;
+        top: 30%;
+        left: 58%;
+        animation: envFloat 4.6s ease-in-out 0.6s infinite;
+      }
+
+      @keyframes envFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-1deg);
+        }
+        50% {
+          transform: translateY(-6px) rotate(1deg);
+        }
+      }
+
+      /* ===== HORSES (left side of tree) ===== */
+      .horse {
+        position: absolute;
+        z-index: 4;
+        cursor: pointer;
+        transition:
+          transform 0.3s ease,
+          filter 0.3s ease;
+        filter: drop-shadow(0 2px 4px rgba(120, 60, 20, 0.18));
+        scale: 5;
+      }
+
+      .horse img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .horse:hover {
+        transform: scale(1.3);
+        filter: drop-shadow(0 4px 12px rgba(255, 180, 50, 0.6))
+          drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+      }
+
+      /* 7 horses in zigzag/staggered pattern on the left */
+      .horse-1 {
+        width: 60px;
+        top: 78%;
+        left: 1%;
+        animation: horseFloat 4.8s ease-in-out 0.1s infinite;
+        z-index: 47;
+      }
+      .horse-2 {
+        width: 55px;
+        top: 40%;
+        left: 14%;
+        animation: horseFloat 5.2s ease-in-out 0.4s infinite;
+      }
+      .horse-3 {
+        width: 62px;
+        top: 60%;
+        left: 4%;
+        animation: horseFloat 4.5s ease-in-out 0.7s infinite;
+        z-index: 46;
+      }
+      .horse-4 {
+        width: 56px;
+        top: 56%;
+        left: 16%;
+        animation: horseFloat 5s ease-in-out 1s infinite;
+      }
+      .horse-5 {
+        width: 60px;
+        top: 80%;
+        left: 30%;
+        animation: horseFloat 4.7s ease-in-out 0.3s infinite;
+        z-index: 45;
+      }
+      .horse-6 {
+        width: 54px;
+        top: 68%;
+        left: 38%;
+        animation: horseFloat 5.3s ease-in-out 0.6s infinite;
+      }
+      .horse-7 {
+        width: 58px;
+        top: 80%;
+        left: 48%;
+        animation: horseFloat 4.4s ease-in-out 0.9s infinite;
+      }
+
+      @keyframes horseFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      /* ===== MOBILE OVERRIDES ===== */
+      @media (max-width: 600px) {
+        header {
+          padding: 10px 12px 8px;
+        }
+        .envelope {
+          width: 28px !important;
+        }
+
+        /* Hide horses on mobile */
+        .horse {
+          display: none !important;
+        }
+
+        /* Move all envelopes down by ~40% on mobile */
+        .envelope-1 {
+          top: 44% !important;
+        }
+        .envelope-2 {
+          top: 46% !important;
+          left: 20%;
+        }
+        .envelope-3 {
+          top: 40% !    important;
+        }
+        .envelope-4 {
+          top: 36% !important;
+        }
+        .envelope-5 {
+          top: 50% !important;
+        }
+        .envelope-6 {
+          top: 60% !important;
+        }
+        .envelope-7 {
+          top: 46% !important;
+        }
+      }
+
+      /* ===== MODAL ===== */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        display: flex;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-box {
+        background: linear-gradient(145deg, #fff5f5, #ffe0e6);
+        border: 3px solid #e53935;
+        border-radius: 20px;
+        padding: 36px 40px;
+        text-align: center;
+        max-width: 380px;
+        width: 90%;
+        box-shadow:
+          0 20px 60px rgba(200, 50, 50, 0.3),
+          0 0 40px rgba(255, 200, 50, 0.15);
+        animation: modalPop 0.4s cubic-bezier(0.18, 1.2, 0.5, 1);
+        position: relative;
+      }
+
+      @keyframes modalPop {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .modal-emoji {
+        font-size: 3.5rem;
+        margin-bottom: 12px;
+        animation: emojiPulse 1.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes emojiPulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.15);
+        }
+      }
+
+      .modal-title {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #c62828;
+        margin-bottom: 8px;
+      }
+
+      .modal-msg {
+        font-size: 0.95rem;
+        color: #5a1a00;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .modal-close {
+        background: #e53935;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 32px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+
+      .modal-close:hover {
+        background: #c62828;
+        transform: scale(1.06);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Floating Petals -->
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <!-- Header -->
+    <header>
+      <h1 class="header-title">Chúc Mừng Năm Mới — Mã Đáo Thành Công</h1>
+    </header>
+
+    <!-- Main: Tree Scene (fills viewport) -->
+    <main>
+      <div class="scene-container">
+        <img
+          class="tree"
+          src="chrerryblossom.svg"
+          alt="Cây Đào"
+          loading="eager"
+        />
+
+        <!-- 7 Envelopes -->
+        <div class="envelope envelope-1">
+          <img src="red-envelope.png" alt="Lì Xì 1" />
+        </div>
+        <div class="envelope envelope-2">
+          <img src="red-envelope.png" alt="Lì Xì 2" />
+        </div>
+        <div class="envelope envelope-3">
+          <img src="red-envelope.png" alt="Lì Xì 3" />
+        </div>
+        <div class="envelope envelope-4">
+          <img src="red-envelope.png" alt="Lì Xì 4" />
+        </div>
+        <div class="envelope envelope-5">
+          <img src="red-envelope.png" alt="Lì Xì 5" />
+        </div>
+        <div class="envelope envelope-6">
+          <img src="red-envelope.png" alt="Lì Xì 6" />
+        </div>
+        <div class="envelope envelope-7">
+          <img src="red-envelope.png" alt="Lì Xì 7" />
+        </div>
+
+        <!-- 7 Horses on the left -->
+        <div class="horse horse-1"><img src="hourse.svg" alt="Ngựa 1" /></div>
+        <div class="horse horse-2"><img src="hourse.svg" alt="Ngựa 2" /></div>
+        <div class="horse horse-3"><img src="hourse.svg" alt="Ngựa 3" /></div>
+        <div class="horse horse-4"><img src="hourse.svg" alt="Ngựa 4" /></div>
+        <div class="horse horse-5"><img src="hourse.svg" alt="Ngựa 5" /></div>
+        <div class="horse horse-6"><img src="hourse.svg" alt="Ngựa 6" /></div>
+        <div class="horse horse-7"><img src="hourse.svg" alt="Ngựa 7" /></div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal-box">
+        <div class="modal-emoji">🧧</div>
+        <div class="modal-title">Chúc Mừng!</div>
+        <p class="modal-msg">
+          Bạn đã nhận được một lì xì!<br />Chúc bạn năm mới an khang thịnh
+          vượng! 🎉
+        </p>
+        <button class="modal-close" id="modalClose">Cảm ơn! 🌸</button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const container = document.getElementById("petalsContainer");
+        for (let i = 0; i < 50; i++) {
+          const p = document.createElement("div");
+          p.classList.add("petal");
+          const s = Math.random() * 10 + 6;
+          p.style.width = s + "px";
+          p.style.height = s + "px";
+          p.style.left = Math.random() * 100 + "%";
+          p.style.animationDuration = Math.random() * 8 + 7 + "s";
+          p.style.animationDelay = Math.random() * 10 + "s";
+          const h = Math.random() * 30 + 330;
+          p.style.background = `radial-gradient(circle, hsl(${h},80%,75%) 30%, hsl(${h},70%,60%) 100%)`;
+          container.appendChild(p);
+        }
+      })();
+
+      const modal = document.getElementById("modal");
+      const modalClose = document.getElementById("modalClose");
+
+      document.querySelectorAll(".envelope").forEach((e) => {
+        e.addEventListener("click", function () {
+          this.style.animation = "none";
+          void this.offsetHeight;
+          this.style.animation = "";
+          this.style.transform = "scale(1.35) rotate(5deg)";
+          setTimeout(() => {
+            this.style.transform = "";
+          }, 300);
+          setTimeout(() => {
+            modal.classList.add("active");
+          }, 200);
+        });
+      });
+
+      modalClose.addEventListener("click", () =>
+        modal.classList.remove("active"),
+      );
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
